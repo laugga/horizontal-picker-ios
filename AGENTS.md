@@ -114,8 +114,8 @@ make deploy   # delegates to $(MAKE) -C Example deploy
   `CONVENTIONS.md` → *Bundle identifier* gives a library's Example app. It is
   the Firebase app's identity and can never change there, so a new identifier
   means a new Firebase app, registered alongside rather than renamed. The
-  Example app was `com.laugga.HorizontalPicker` until LM-639; that Firebase
-  app is retired.
+  Example app was `com.laugga.HorizontalPicker` until LM-639, and nothing
+  deploys to that Firebase app any more.
 - **Build and signing** — Debug configuration, automatic signing, team
   `JJC3QT2D2L`. `Example/Support/ExportOptions.plist` exports with
   `method = debugging`, so only devices registered in that Apple team can
