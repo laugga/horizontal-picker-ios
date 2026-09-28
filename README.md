@@ -23,8 +23,14 @@ Add the package to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/laugga/HorizontalPicker.git", from: "1.0.0")
+    .package(url: "https://github.com/laugga/horizontal-picker-ios.git", from: "1.0.0")
 ]
+```
+
+and the library to your target, naming the package by its repository:
+
+```swift
+.product(name: "HorizontalPicker", package: "horizontal-picker-ios")
 ```
 
 Or in Xcode, *File > Add Package Dependencies…* and enter the repository URL.

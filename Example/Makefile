@@ -77,12 +77,13 @@ archive: ## Build and export a signed Development .ipa into build/export/
 # The Example app links no Firebase SDK and does nothing with these at
 # runtime — there is no GoogleService-Info.plist to read them from, so the
 # destination is just named here: the Firebase app registered for
-# com.laugga.HorizontalPicker, in the Lightmate Development project, never
-# another component's. The internal group has to exist already; deploy never
-# creates one, and never changes who is in it.
+# com.laugga.horizontal-picker-example (Horizontal Picker iOS Development), in
+# the Lightmate Development project, never another component's. The internal
+# group has to exist already; deploy never creates one, and never changes who
+# is in it.
 
 FIREBASE_PROJECT := lightmate-development-390f6
-FIREBASE_APP     := 1:480717957783:ios:2981d35830eb66aa8f97d2
+FIREBASE_APP     := 1:480717957783:ios:a18bd24238a41a038f97d2
 FIREBASE_GROUPS  := internal
 
 # PRODUCT_NAME is HorizontalPicker, so the app is HorizontalPicker.app and the
