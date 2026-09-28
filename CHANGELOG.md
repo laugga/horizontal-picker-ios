@@ -27,6 +27,14 @@ Removed:
 
 Other:
 
+  - The repository is renamed horizontal-picker-ios. Depend on
+    https://github.com/laugga/horizontal-picker-ios.git and name the product as
+    .product(name: "HorizontalPicker", package: "horizontal-picker-ios"). The
+    package, product and module are still HorizontalPicker, so no import
+    changes, but SwiftPM identifies a package by its URL, so a dependency on the
+    old URL is a different package and has to be re-resolved against the new
+    one. GitHub redirects the old URL in the meantime
+  - The Example app's bundle identifier is com.laugga.horizontal-picker-example
   - AGENTS.md, so an agent or a new contributor can build, test and follow the
     conventions of this repository without asking. CLAUDE.md points at it
   - README rewritten against the current API — the configuration properties,

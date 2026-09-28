@@ -17,6 +17,16 @@ Swift Package Manager dependency, and a consumer may track the `main` branch
 rather than a version tag — so treat a change to the public API as reaching an
 app with no version gate in between, and say so in the pull request.
 
+**The repository is `horizontal-picker-ios`; the package, product and module
+are `HorizontalPicker`.** The repository name follows `CONVENTIONS.md` →
+*Names* in `laugga/ops` and was `HorizontalPicker` until LM-639. Every existing
+library keeps its module name, so nothing inside the repository was renamed
+with it — not `Package.swift`, not `Sources/HorizontalPicker/`, not
+`Example/HorizontalPicker.xcodeproj`. What changed is the URL, and with it the
+package's SwiftPM identity: a consumer depends on
+`https://github.com/laugga/horizontal-picker-ios.git` and names the product as
+`.product(name: "HorizontalPicker", package: "horizontal-picker-ios")`.
+
 ## Build and test the library
 
 **`Package.swift` is the authoritative build.** It defines the `HorizontalPicker`
@@ -97,9 +107,15 @@ make deploy   # delegates to $(MAKE) -C Example deploy
 - **Configuration** — `Example/Makefile` names the destination directly as
   `FIREBASE_PROJECT`/`FIREBASE_APP`/`FIREBASE_GROUPS`: project
   `lightmate-development-390f6` ("Lightmate Development"), app
-  `com.laugga.HorizontalPicker`. The Example app links no Firebase SDK, so
-  there is no `GoogleService-Info.plist` to read these from instead — see the
-  gotchas.
+  `com.laugga.horizontal-picker-example` ("Horizontal Picker iOS
+  Development"). The Example app links no Firebase SDK, so there is no
+  `GoogleService-Info.plist` to read these from instead — see the gotchas.
+- **Bundle identifier** — `com.laugga.horizontal-picker-example`, the form
+  `CONVENTIONS.md` → *Bundle identifier* gives a library's Example app. It is
+  the Firebase app's identity and can never change there, so a new identifier
+  means a new Firebase app, registered alongside rather than renamed. The
+  Example app was `com.laugga.HorizontalPicker` until LM-639, and nothing
+  deploys to that Firebase app any more.
 - **Build and signing** — Debug configuration, automatic signing, team
   `JJC3QT2D2L`. `Example/Support/ExportOptions.plist` exports with
   `method = debugging`, so only devices registered in that Apple team can

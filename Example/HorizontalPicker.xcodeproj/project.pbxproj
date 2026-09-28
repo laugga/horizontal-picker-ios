@@ -203,7 +203,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.laugga.HorizontalPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.laugga.horizontal-picker-example";
 				PRODUCT_MODULE_NAME = HorizontalPickerExample;
 				PRODUCT_NAME = HorizontalPicker;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -231,7 +231,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.laugga.HorizontalPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.laugga.horizontal-picker-example";
 				PRODUCT_MODULE_NAME = HorizontalPickerExample;
 				PRODUCT_NAME = HorizontalPicker;
 				SWIFT_EMIT_LOC_STRINGS = YES;
