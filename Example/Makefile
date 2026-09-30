@@ -24,12 +24,13 @@ build: ## Compile the Example app for the simulator
 	xcodebuild build -project $(PROJECT) -scheme $(SCHEME) \
 		-destination '$(BUILD_DEST)' $(NOSIGN)
 
-test: ## Run the Example scheme's tests on an iPhone simulator (TEST_DEVICE= picks one)
-	@dev="$${TEST_DEVICE:-$$(xcrun simctl list devices available | grep -oE 'iPhone [0-9]+[^(]*' | tail -1 | xargs)}"; \
-	dest="$${TEST_DEST:-platform=iOS Simulator,name=$$dev}"; \
-	echo "Testing on: $$dest"; \
-	xcodebuild test -project $(PROJECT) -scheme $(SCHEME) \
-		-destination "$$dest" $(NOSIGN)
+# The package's tests run at the repository root, with `make test` — a package
+# added to a project as a dependency exposes its library but not its test
+# targets, so this scheme has no testables to run. Add the Example app's own
+# tests here if it ever grows some.
+test: ## Say where the tests actually are
+	@echo "the package's tests run at the repository root: make test"
+	@echo "this scheme builds the Example app; it has no tests of its own yet"
 
 clean: ## Remove the Example app's build products
 	xcodebuild clean -project $(PROJECT) -scheme $(SCHEME) || true
