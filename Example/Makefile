@@ -42,7 +42,7 @@ clean: ## Remove the Example app's build products
 # build is". Signing is the project's own — automatic, team JJC3QT2D2L — with
 # the developer account signed in to Xcode.
 
-ARCHIVE_PATH   := build/HorizontalPicker.xcarchive
+ARCHIVE_PATH   := build/Example.xcarchive
 EXPORT_PATH    := build/export
 # Only the export method: the archive supplies the signing style and the
 # team, and the default thinning is one universal .ipa.
@@ -77,19 +77,18 @@ archive: ## Build and export a signed Development .ipa into build/export/
 # The Example app links no Firebase SDK and does nothing with these at
 # runtime — there is no GoogleService-Info.plist to read them from, so the
 # destination is just named here: the Firebase app registered for
-# com.laugga.horizontal-picker-example (Horizontal Picker iOS Development), in
-# the Lightmate Development project, never another component's. The internal
-# group has to exist already; deploy never creates one, and never changes who
-# is in it.
+# com.laugga.horizontal-picker-example (HorizontalPicker), in the Lightmate
+# Development project, never another component's. The internal group has to
+# exist already; deploy never creates one, and never changes who is in it.
 
 FIREBASE_PROJECT := lightmate-development-390f6
 FIREBASE_APP     := 1:480717957783:ios:a18bd24238a41a038f97d2
 FIREBASE_GROUPS  := internal
 
-# PRODUCT_NAME is HorizontalPicker, so the app is HorizontalPicker.app and the
-# export is HorizontalPicker.ipa — the Example target's product, not the
-# scheme's name.
-IPA           := $(EXPORT_PATH)/HorizontalPicker.ipa
+# PRODUCT_NAME is $(TARGET_NAME), so the app is Example.app and the export is
+# Example.ipa. The home screen reads HorizontalPicker, but that is the display
+# name, INFOPLIST_KEY_CFBundleDisplayName, which never reaches a file name.
+IPA           := $(EXPORT_PATH)/Example.ipa
 RELEASE_NOTES := build/release-notes.txt
 UPLOAD_LOG    := build/upload.log
 

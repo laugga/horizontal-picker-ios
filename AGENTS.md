@@ -69,6 +69,19 @@ xcodebuild -project Example/HorizontalPicker.xcodeproj -scheme Example \
   -destination 'platform=iOS Simulator,name=iPhone 17' build
 ```
 
+**The app is called *HorizontalPicker*, but its target is `Example`.** The
+target, its product and its module are all `Example` — `PRODUCT_NAME =
+$(TARGET_NAME)`, so the build is `Example.app` and `deploy` uploads
+`Example.ipa`. The name on the home screen is the display name,
+`INFOPLIST_KEY_CFBundleDisplayName = HorizontalPicker`, set in both
+configurations. That is `template-library-swift`'s Example exactly: a module
+named `HorizontalPicker` would clash with the library it imports, so only the
+display name carries the library's Name. The project and the source directory
+keep the library's name, as the template's do. The display name is also what
+the Firebase app is nicknamed — whatever the build calls itself (ops
+`CONVENTIONS.md` → *Firebase app nickname*) — so drop it and the app is called
+`Example` on a phone, and would be registered as that.
+
 The example is a catalog: thirteen scenarios in six sections, each opening a
 working screen. `Catalog.swift` is the index; each scenario is a
 `ScenarioViewController` subclass that builds and configures its own picker
@@ -107,9 +120,10 @@ make deploy   # delegates to $(MAKE) -C Example deploy
 - **Configuration** — `Example/Makefile` names the destination directly as
   `FIREBASE_PROJECT`/`FIREBASE_APP`/`FIREBASE_GROUPS`: project
   `lightmate-development-390f6` ("Lightmate Development"), app
-  `com.laugga.horizontal-picker-example` ("Horizontal Picker iOS
-  Development"). The Example app links no Firebase SDK, so there is no
-  `GoogleService-Info.plist` to read these from instead — see the gotchas.
+  `com.laugga.horizontal-picker-example` (*HorizontalPicker*, what the build
+  calls itself — see above). The Example app links no Firebase SDK, so there
+  is no `GoogleService-Info.plist` to read these from instead — see the
+  gotchas.
 - **Bundle identifier** — `com.laugga.horizontal-picker-example`, the form
   `CONVENTIONS.md` → *Bundle identifier* gives a library's Example app. It is
   the Firebase app's identity and can never change there, so a new identifier

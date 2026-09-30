@@ -11,7 +11,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		LM604000000000000000A001 /* HorizontalPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HorizontalPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		LM604000000000000000A001 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -41,7 +41,7 @@
 		LM6040000000000000010001 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				LM604000000000000000A001 /* HorizontalPicker.app */,
+				LM604000000000000000A001 /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -49,9 +49,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		LM6040000000000000020001 /* HorizontalPickerExample */ = {
+		LM6040000000000000020001 /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = LM6040000000000000030001 /* Build configuration list for PBXNativeTarget "HorizontalPickerExample" */;
+			buildConfigurationList = LM6040000000000000030001 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
 				LM6040000000000000040001 /* Sources */,
 				LM604000000000000000E001 /* Frameworks */,
@@ -64,12 +64,12 @@
 			fileSystemSynchronizedGroups = (
 				LM604000000000000000C001 /* HorizontalPicker */,
 			);
-			name = HorizontalPickerExample;
+			name = Example;
 			packageProductDependencies = (
 				LM604000000000000000D001 /* HorizontalPicker */,
 			);
-			productName = HorizontalPickerExample;
-			productReference = LM604000000000000000A001 /* HorizontalPicker.app */;
+			productName = Example;
+			productReference = LM604000000000000000A001 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +104,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				LM6040000000000000020001 /* HorizontalPickerExample */,
+				LM6040000000000000020001 /* Example */,
 			);
 		};
 /* End PBXProject section */
@@ -193,6 +193,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JJC3QT2D2L;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HorizontalPicker;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -204,8 +205,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.laugga.horizontal-picker-example";
-				PRODUCT_MODULE_NAME = HorizontalPickerExample;
-				PRODUCT_NAME = HorizontalPicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -221,6 +221,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JJC3QT2D2L;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HorizontalPicker;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -232,8 +233,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.laugga.horizontal-picker-example";
-				PRODUCT_MODULE_NAME = HorizontalPickerExample;
-				PRODUCT_NAME = HorizontalPicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -252,7 +252,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		LM6040000000000000030001 /* Build configuration list for PBXNativeTarget "HorizontalPickerExample" */ = {
+		LM6040000000000000030001 /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				LM60400000000000000B0001 /* Debug */,
