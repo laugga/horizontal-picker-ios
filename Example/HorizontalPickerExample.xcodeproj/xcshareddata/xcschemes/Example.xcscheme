@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "LM6040000000000000020001"
-               BuildableName = "Example.app"
-               BlueprintName = "Example"
-               ReferencedContainer = "container:HorizontalPicker.xcodeproj">
+               BuildableName = "HorizontalPickerExample.app"
+               BlueprintName = "HorizontalPickerExample"
+               ReferencedContainer = "container:HorizontalPickerExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "LM6040000000000000020001"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
-            ReferencedContainer = "container:HorizontalPicker.xcodeproj">
+            BuildableName = "HorizontalPickerExample.app"
+            BlueprintName = "HorizontalPickerExample"
+            ReferencedContainer = "container:HorizontalPickerExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "LM6040000000000000020001"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
-            ReferencedContainer = "container:HorizontalPicker.xcodeproj">
+            BuildableName = "HorizontalPickerExample.app"
+            BlueprintName = "HorizontalPickerExample"
+            ReferencedContainer = "container:HorizontalPickerExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

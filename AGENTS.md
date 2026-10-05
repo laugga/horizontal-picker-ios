@@ -21,9 +21,8 @@ app with no version gate in between, and say so in the pull request.
 are `HorizontalPicker`.** The repository name follows `CONVENTIONS.md` →
 *Names* in `laugga/ops` and was `HorizontalPicker` until LM-639. Every existing
 library keeps its module name, so nothing inside the repository was renamed
-with it — not `Package.swift`, not `Sources/HorizontalPicker/`, not
-`Example/HorizontalPicker.xcodeproj`. What changed is the URL, and with it the
-package's SwiftPM identity: a consumer depends on
+with it — not `Package.swift`, not `Sources/HorizontalPicker/`. What changed is
+the URL, and with it the package's SwiftPM identity: a consumer depends on
 `https://github.com/laugga/horizontal-picker-ios.git` and names the product as
 `.product(name: "HorizontalPicker", package: "horizontal-picker-ios")`.
 
@@ -58,36 +57,43 @@ neither.
 
 ## Build and run the example app
 
-`Example/HorizontalPicker.xcodeproj` builds **only the example app**. It is not
-an alternative way to build the library: it depends on the repository root as a
-*local* Swift package (`XCLocalSwiftPackageReference ".."`), so it compiles
-whatever is in the working tree through the same `Package.swift`. It exists so
-a change can be seen working by hand.
+`Example/HorizontalPickerExample.xcodeproj` builds **only the example app**. It
+is not an alternative way to build the library: it depends on the repository
+root as a *local* Swift package (`XCLocalSwiftPackageReference ".."`), so it
+compiles whatever is in the working tree through the same `Package.swift`. It
+exists so a change can be seen working by hand.
 
 ```bash
-xcodebuild -project Example/HorizontalPicker.xcodeproj -scheme Example \
+xcodebuild -project Example/HorizontalPickerExample.xcodeproj -scheme Example \
   -destination 'platform=iOS Simulator,name=iPhone 17' build
 ```
 
-**The app is called *HorizontalPicker*, but its target is `Example`.** The
-target, its product and its module are all `Example` — `PRODUCT_NAME =
-$(TARGET_NAME)`, so the build is `Example.app` and `deploy` uploads
-`Example.ipa`. The name on the home screen is the display name,
-`INFOPLIST_KEY_CFBundleDisplayName = HorizontalPicker`, set in both
-configurations. That is `template-library-swift`'s Example exactly: a module
-named `HorizontalPicker` would clash with the library it imports, so only the
-display name carries the library's Name. The project and the source directory
-keep the library's name, as the template's do. The display name is also what
-the Firebase app is nicknamed — whatever the build calls itself (ops
-`CONVENTIONS.md` → *Firebase app nickname*) — so drop it and the app is called
-`Example` on a phone, and would be registered as that.
+**The app is `HorizontalPickerExample` in every name but one: its display name
+is *HorizontalPicker*.** That is ops `CONVENTIONS.md` → *Names* → *A library's
+Example app*, where the reasoning is. This repository follows it with no
+exception:
+
+- **Target, product and module** — `HorizontalPickerExample`. The target's
+  `name` and `productName` say so, and the product and the module follow
+  through `PRODUCT_NAME = $(TARGET_NAME)`, with no `PRODUCT_MODULE_NAME`. The
+  build is `HorizontalPickerExample.app`, and `deploy` uploads
+  `HorizontalPickerExample.ipa`.
+- **Project and source directory** — `Example/HorizontalPickerExample.xcodeproj`
+  and `Example/HorizontalPickerExample/`.
+- **Scheme** — `Example`, the one name that is the same in every library. No
+  target, product or module is called that.
+- **Display name** — `INFOPLIST_KEY_CFBundleDisplayName = HorizontalPicker`, set
+  by hand in both configurations. It is what the home screen shows and what
+  the Firebase app is nicknamed (ops `CONVENTIONS.md` → *Firebase app
+  nickname*), so drop it and the app is called *HorizontalPickerExample* on a
+  phone, and would be registered as that.
 
 The example is a catalog: thirteen scenarios in six sections, each opening a
 working screen. `Catalog.swift` is the index; each scenario is a
 `ScenarioViewController` subclass that builds and configures its own picker
 through the public API only. Add a scenario by adding the view controller under
-`Example/HorizontalPicker/Scenarios/<Section>/` and an entry in `Catalog.swift`;
-nothing else is wired by hand.
+`Example/HorizontalPickerExample/Scenarios/<Section>/` and an entry in
+`Catalog.swift`; nothing else is wired by hand.
 
 **The example app is kept in step with the library, always.** A change to the
 library is not finished until the example reflects it:

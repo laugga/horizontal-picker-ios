@@ -5,7 +5,7 @@
 # The root exposes only `deploy`, delegating here. Work on the app directly
 # with `make -C Example build`, `make -C Example test`, and so on.
 
-PROJECT := HorizontalPicker.xcodeproj
+PROJECT := HorizontalPickerExample.xcodeproj
 SCHEME  := Example
 
 .DEFAULT_GOAL := help
@@ -43,7 +43,7 @@ clean: ## Remove the Example app's build products
 # build is". Signing is the project's own — automatic, team JJC3QT2D2L — with
 # the developer account signed in to Xcode.
 
-ARCHIVE_PATH   := build/Example.xcarchive
+ARCHIVE_PATH   := build/HorizontalPickerExample.xcarchive
 EXPORT_PATH    := build/export
 # Only the export method: the archive supplies the signing style and the
 # team, and the default thinning is one universal .ipa.
@@ -86,10 +86,12 @@ FIREBASE_PROJECT := lightmate-development-390f6
 FIREBASE_APP     := 1:480717957783:ios:a18bd24238a41a038f97d2
 FIREBASE_GROUPS  := internal
 
-# PRODUCT_NAME is $(TARGET_NAME), so the app is Example.app and the export is
-# Example.ipa. The home screen reads HorizontalPicker, but that is the display
-# name, INFOPLIST_KEY_CFBundleDisplayName, which never reaches a file name.
-IPA           := $(EXPORT_PATH)/Example.ipa
+# PRODUCT_NAME is $(TARGET_NAME) and the target is HorizontalPickerExample, so
+# the app is HorizontalPickerExample.app and the export is
+# HorizontalPickerExample.ipa. The home screen reads HorizontalPicker, but that
+# is the display name, INFOPLIST_KEY_CFBundleDisplayName, which never reaches a
+# file name.
+IPA           := $(EXPORT_PATH)/HorizontalPickerExample.ipa
 RELEASE_NOTES := build/release-notes.txt
 UPLOAD_LOG    := build/upload.log
 
