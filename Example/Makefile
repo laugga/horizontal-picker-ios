@@ -5,7 +5,7 @@
 # The root exposes only `deploy`, delegating here. Work on the app directly
 # with `make -C Example build`, `make -C Example test`, and so on.
 
-PROJECT := HorizontalPicker.xcodeproj
+PROJECT := HorizontalPickerExample.xcodeproj
 SCHEME  := Example
 
 .DEFAULT_GOAL := help
@@ -24,12 +24,13 @@ build: ## Compile the Example app for the simulator
 	xcodebuild build -project $(PROJECT) -scheme $(SCHEME) \
 		-destination '$(BUILD_DEST)' $(NOSIGN)
 
-test: ## Run the Example scheme's tests on an iPhone simulator (TEST_DEVICE= picks one)
-	@dev="$${TEST_DEVICE:-$$(xcrun simctl list devices available | grep -oE 'iPhone [0-9]+[^(]*' | tail -1 | xargs)}"; \
-	dest="$${TEST_DEST:-platform=iOS Simulator,name=$$dev}"; \
-	echo "Testing on: $$dest"; \
-	xcodebuild test -project $(PROJECT) -scheme $(SCHEME) \
-		-destination "$$dest" $(NOSIGN)
+# The package's tests run at the repository root, with `make test` — a package
+# added to a project as a dependency exposes its library but not its test
+# targets, so this scheme has no testables to run. Add the Example app's own
+# tests here if it ever grows some.
+test: ## Say where the tests actually are
+	@echo "the package's tests run at the repository root: make test"
+	@echo "this scheme builds the Example app; it has no tests of its own yet"
 
 clean: ## Remove the Example app's build products
 	xcodebuild clean -project $(PROJECT) -scheme $(SCHEME) || true
@@ -42,7 +43,7 @@ clean: ## Remove the Example app's build products
 # build is". Signing is the project's own — automatic, team JJC3QT2D2L — with
 # the developer account signed in to Xcode.
 
-ARCHIVE_PATH   := build/HorizontalPicker.xcarchive
+ARCHIVE_PATH   := build/HorizontalPickerExample.xcarchive
 EXPORT_PATH    := build/export
 # Only the export method: the archive supplies the signing style and the
 # team, and the default thinning is one universal .ipa.
@@ -77,19 +78,20 @@ archive: ## Build and export a signed Development .ipa into build/export/
 # The Example app links no Firebase SDK and does nothing with these at
 # runtime — there is no GoogleService-Info.plist to read them from, so the
 # destination is just named here: the Firebase app registered for
-# com.laugga.horizontal-picker-example (Horizontal Picker iOS Development), in
-# the Lightmate Development project, never another component's. The internal
-# group has to exist already; deploy never creates one, and never changes who
-# is in it.
+# com.laugga.horizontal-picker-example (HorizontalPicker), in the Lightmate
+# Development project, never another component's. The internal group has to
+# exist already; deploy never creates one, and never changes who is in it.
 
 FIREBASE_PROJECT := lightmate-development-390f6
 FIREBASE_APP     := 1:480717957783:ios:a18bd24238a41a038f97d2
 FIREBASE_GROUPS  := internal
 
-# PRODUCT_NAME is HorizontalPicker, so the app is HorizontalPicker.app and the
-# export is HorizontalPicker.ipa — the Example target's product, not the
-# scheme's name.
-IPA           := $(EXPORT_PATH)/HorizontalPicker.ipa
+# PRODUCT_NAME is $(TARGET_NAME) and the target is HorizontalPickerExample, so
+# the app is HorizontalPickerExample.app and the export is
+# HorizontalPickerExample.ipa. The home screen reads HorizontalPicker, but that
+# is the display name, INFOPLIST_KEY_CFBundleDisplayName, which never reaches a
+# file name.
+IPA           := $(EXPORT_PATH)/HorizontalPickerExample.ipa
 RELEASE_NOTES := build/release-notes.txt
 UPLOAD_LOG    := build/upload.log
 

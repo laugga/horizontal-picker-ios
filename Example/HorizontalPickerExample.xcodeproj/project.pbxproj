@@ -11,11 +11,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		LM604000000000000000A001 /* HorizontalPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HorizontalPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		LM604000000000000000A001 /* HorizontalPickerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HorizontalPickerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		LM604000000000000000C001 /* HorizontalPicker */ = {isa = PBXFileSystemSynchronizedRootGroup; path = HorizontalPicker; sourceTree = "<group>"; };
+		LM604000000000000000C001 /* HorizontalPickerExample */ = {isa = PBXFileSystemSynchronizedRootGroup; path = HorizontalPickerExample; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +33,7 @@
 		LM604000000000000000F001 = {
 			isa = PBXGroup;
 			children = (
-				LM604000000000000000C001 /* HorizontalPicker */,
+				LM604000000000000000C001 /* HorizontalPickerExample */,
 				LM6040000000000000010001 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,7 +41,7 @@
 		LM6040000000000000010001 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				LM604000000000000000A001 /* HorizontalPicker.app */,
+				LM604000000000000000A001 /* HorizontalPickerExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,14 +62,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				LM604000000000000000C001 /* HorizontalPicker */,
+				LM604000000000000000C001 /* HorizontalPickerExample */,
 			);
 			name = HorizontalPickerExample;
 			packageProductDependencies = (
 				LM604000000000000000D001 /* HorizontalPicker */,
 			);
 			productName = HorizontalPickerExample;
-			productReference = LM604000000000000000A001 /* HorizontalPicker.app */;
+			productReference = LM604000000000000000A001 /* HorizontalPickerExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -87,7 +87,7 @@
 					};
 				};
 			};
-			buildConfigurationList = LM6040000000000000070001 /* Build configuration list for PBXProject "HorizontalPicker" */;
+			buildConfigurationList = LM6040000000000000070001 /* Build configuration list for PBXProject "HorizontalPickerExample" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -193,6 +193,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JJC3QT2D2L;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HorizontalPicker;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -204,8 +205,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.laugga.horizontal-picker-example";
-				PRODUCT_MODULE_NAME = HorizontalPickerExample;
-				PRODUCT_NAME = HorizontalPicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -221,6 +221,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JJC3QT2D2L;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HorizontalPicker;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -232,8 +233,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.laugga.horizontal-picker-example";
-				PRODUCT_MODULE_NAME = HorizontalPickerExample;
-				PRODUCT_NAME = HorizontalPicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -243,7 +243,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		LM6040000000000000070001 /* Build configuration list for PBXProject "HorizontalPicker" */ = {
+		LM6040000000000000070001 /* Build configuration list for PBXProject "HorizontalPickerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				LM6040000000000000090001 /* Debug */,

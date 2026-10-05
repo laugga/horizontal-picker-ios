@@ -130,7 +130,7 @@ position of the selected column — to the left, the centre or the right:
 `Example/` is a catalog app: thirteen scenarios in six sections — Basics,
 Layout, Data, Interaction, Customization and Regressions — each opening a
 working screen built through the public API alone. Open
-`Example/HorizontalPicker.xcodeproj` and run the *Example* scheme.
+`Example/HorizontalPickerExample.xcodeproj` and run the *Example* scheme.
 
 The *Native Comparison* scenario, shown above, puts `LAUPickerView` and
 `UIPickerView` over the same values with the selection linked in both
