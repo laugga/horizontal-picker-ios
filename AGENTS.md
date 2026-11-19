@@ -149,8 +149,18 @@ make deploy   # delegates to $(MAKE) -C Example deploy
   either.
 - **One-time setup** — the machine running `deploy` must be signed in to
   Apple team `JJC3QT2D2L` in Xcode, and to the Firebase CLI
-  (`firebase login`). A new tester's device is registered in that Apple team
-  by hand before it can install a build.
+  (`firebase login`) with access to `lightmate-development-390f6` — or, on
+  the ops host, with no login, signing in with the `laugga-ops` service
+  account's key instead. A new tester's device is registered in that Apple
+  team by hand before it can install a build.
+- **Billed to the app's project** — `make deploy` runs its upload with
+  `GOOGLE_CLOUD_QUOTA_PROJECT` set to `lightmate-development-390f6`, whichever
+  credential the CLI has. Without that, a service account's call is billed
+  to its own project, and the ops host's uploads got `403, Firebase App
+  Distribution API has not been used in project 656901280286` —
+  `laugga-development`, not the project uploaded to (LM-698, as
+  lightmate-app-ios LM-687). Don't enable the API there to fix that 403;
+  check that the quota project reaches the CLI.
 - **What it prints** — a tester install link, which goes in this section of
   the pull request description, replaced wholesale on the next build rather
   than appended.
