@@ -16,7 +16,7 @@ name: CI
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, dev]
 
 # A new push supersedes the run in flight. macOS minutes bill at 10x on a
 # private repository, so don't pay for a result nobody will read.
