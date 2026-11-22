@@ -175,7 +175,6 @@ make deploy   # delegates to $(MAKE) -C Example deploy
 | `Tests/HorizontalPickerTests/` | XCTest unit tests covering the data source and delegate contract, selection, reloading, layout, hidden column states, selection geometry, column recycling and scroll snapping. |
 | `Example/` | The example app and its Xcode project. `App/` is the entry point, `Catalog/` the index of scenarios, `Scenarios/` the scenarios themselves, `Resources/` the asset catalog. |
 | `Docs/figures/` | The screenshots the README displays. Regenerate the example screenshot when the example's appearance changes. |
-| `CHANGELOG.md` | Hand-written, newest first, grouped under `Features:` / `Improvements:` / `Fixed:` / `Removed:` / `Other:`. Add an entry for anything a consumer would notice. |
 
 ## Conventions
 
@@ -229,11 +228,12 @@ repository:
   `Package.swift` as `.copy("resources/tick.caf")`. A new resource that is not
   added to that array is silently absent at runtime.
 
-- **The version tags are behind the CHANGELOG.** `0.3.0` is the newest tag and
-  it points at `31f828f`, *before* the Swift rewrite, even though
-  `CHANGELOG.md` files the rewrite under 0.3.0; the top section of the
-  CHANGELOG, `1.0.0`, has no tag yet. Don't trust a tag to mean what the
-  CHANGELOG says it means, and don't create one without being asked.
+- **The GitHub Releases are the changelog.** There is no `CHANGELOG.md`:
+  every tag has a Release whose notes are generated from the pull requests it
+  contains, so a pull request's title is what a consumer reads (ops
+  `docs/versioning.md` → *Tags*). `0.3.0` points at `31f828f`, *before* the
+  Swift rewrite; `0.4.0` is the first tag that contains it. Tags are cut by an
+  organisation owner with `/cut-release` — don't create one.
 
 - **`LAUPickerView` is public but not the whole public surface.** `xcodebuild`
   will happily let you use `LAUPickerTableView` or `LAUPickerViewLabel` from
@@ -247,7 +247,7 @@ Before opening a pull request, confirm:
 - [ ] `make build` succeeds
 - [ ] `make test` passes
 - [ ] The example app builds, and covers whatever the library gained, lost or changed
-- [ ] `CHANGELOG.md` has an entry, if a consumer would notice the change
+- [ ] The pull request title says what a consumer would notice — it becomes the Release's notes
 - [ ] Public API changes are called out in the pull request — a consumer may be tracking `main`
 - [ ] The README still matches the code, and its screenshots still match the example
 - [ ] No unintended churn is committed
