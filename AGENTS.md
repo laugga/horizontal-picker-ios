@@ -50,8 +50,8 @@ picks the newest installed iPhone simulator automatically; override it with
 match the surrounding file instead.
 
 **CI gates the merge.** `.github/workflows/ci.yml` runs `make build` and
-`make test` on `macos-latest` for every pull request into `main`, and a human
-cannot merge without it passing. Xcode Cloud isn't an option here: it needs an
+`make test` on `macos-latest` for every pull request into `main` or `dev`, and
+a human cannot merge without it passing. Xcode Cloud isn't an option here: it needs an
 app or framework target in an Xcode project, and this SwiftPM package has
 neither.
 
@@ -184,8 +184,11 @@ its task are the same in every Laugga Practice repository and are documented in
 [`laugga/ops`](https://github.com/laugga/ops). What is specific to this
 repository:
 
-- **The default and integration branch is `main`.** Open pull requests against
-  it.
+- **The default and integration branch is `dev`.** Pull requests go into it,
+  unless the task names a `release/X.Y.Z` line in its `Base branch`, and
+  release tags are cut on it. `main` moves only by the pull request that
+  follows a final tag, and no work targets it — ops `CONVENTIONS.md` →
+  *Branches*.
 - **Commit subjects read `Type / Description`** — the same shape as the pull
   request title: `Fix / Blank columns when a delegate-supplied column view is
   recycled`, `Refactor / Rewrite the horizontal picker in Swift`.
