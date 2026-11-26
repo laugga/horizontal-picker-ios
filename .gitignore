@@ -36,3 +36,6 @@ research
 .build/
 .swiftpm/
 Package.resolved
+
+# Firebase CLI
+firebase-debug.log
